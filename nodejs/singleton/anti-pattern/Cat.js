@@ -1,4 +1,4 @@
-const Logger =require('./Logger');
+import Logger from './Logger.js';
 
 var logger = new Logger();
 
@@ -11,4 +11,4 @@ class Cat {
 
 }
 
-module.exports = Cat;
+export default Cat;

@@ -1,6 +1,6 @@
-const Logger =require('./Logger');
-const Cat = require('./Cat.js');
-const Dog = require('./Dog.js');
+import Logger from './Logger.js';
+import Cat from './Cat.js';
+import Dog from './Dog.js';
 
 const logger = new Logger();
 

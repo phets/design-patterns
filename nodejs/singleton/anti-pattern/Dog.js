@@ -1,6 +1,6 @@
-const Logger =require('./Logger');
+import Logger from './Logger.js';
 
-var logger = new Logger();
+let logger = new Logger();
 
 class Dog {
 
@@ -11,4 +11,4 @@ class Dog {
 
 }
 
-module.exports = Dog;
+export default Dog;
