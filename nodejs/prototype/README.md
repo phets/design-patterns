@@ -12,9 +12,23 @@ We put an artificial delay in the constuctor to simulate a costly operation and 
 
 The delay quickly adds up when creating multiple instances as we see by the time elapsed at the end of the example.
 
-Also, all engineers take the same three basic courses but we are setting them manually for each engineer duplicating lots of code.
+Also, all engineers and all life sciences graduates take the same three basic courses but we are setting them manually for each engineer duplicating lots of code.
 
 In the **pattern** example we add the `clone` method to the `Graduate` class.
+
+```javascript
+clone() {
+    const cloned = Object.create( Object.getPrototypeOf(this) );
+    cloned._name = this._name;
+    cloned._subject = this._subject;
+    cloned._courses = [...this._courses];
+
+    return cloned;
+}
+```
+The `clone` method creates a new object based on the prototype of the calling object and then copies the its properties, thereby avoiding the call to the constructor.
+
+By cloning an object that is already populated with the common properties (the courses) we also avoid having to set these properties every time.
 
 
 
