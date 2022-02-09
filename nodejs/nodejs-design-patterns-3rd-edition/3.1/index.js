@@ -18,8 +18,8 @@ class FindRegex extends EventEmitter {
     // If the event were triggered synchronously the listener
     // would have to be registered before the find() method is
     // invoked.
-    process.nextTick(() => this.emit('start',this.files))
-    
+    process.nextTick(() => this.emit('start', this.files))
+
     for (const file of this.files) {
       readFile(file, 'utf8', (err, content) => {
         if (err) {
@@ -41,12 +41,16 @@ class FindRegex extends EventEmitter {
 const findRegexInstance = new FindRegex(/hello \w+/)
 
 // Take file list from parameters.
-let fileList = process.argv.slice(2,)
+const fileList = process.argv.slice(2)
 for (const fileName of fileList) { findRegexInstance.addFile(fileName) }
 findRegexInstance
   .find()
   .on('start', (files) => console.log(`Start searching in files ${files}`))
   .on('found', (file, match) => console.log(`Matched "${match}" in file ${file}`))
-  .on('error', (err,file) => {
-    if(err.code === 'EISDIR') {console.log(`${file} is a directory. Ignoring.`)}  
-    else {console.error(`Error emitted ${err.message}`)}})
+  .on('error', (err, file) => {
+    if (err.code === 'EISDIR') {
+      console.log(`${file} is a directory. Ignoring.`)
+    } else {
+      console.error(`Error emitted ${err.message}`)
+    }
+  })
