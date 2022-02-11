@@ -1,7 +1,7 @@
 import { FetchCandles } from './FetchCandles.js'
 
 const symbol = 'BTCUSDT'
-const interval = '1h'
+const interval = '4h'
 const howMany = 100
 
 FetchCandles(symbol, interval, null, howMany, (err) => {
