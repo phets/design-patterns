@@ -1,9 +1,14 @@
 import EventEmitter from 'events'
 
+// Calls the callback cb after 'milliseconds'.
+// Returns an EventEmitter that emits a 'tick' event
+// every 1000ms until the callback is triggered.
 function delayedCallback (milliseconds, cb) {
   const emitter = new EventEmitter()
   const tickCount = 0
 
+  // Recursive function that is called every 1000ms until the
+  // the time has come to trigger the callback.
   function goAround (milliseconds, tickCount, emitter, cb) {
     if (milliseconds > 1000) {
       tickCount++
