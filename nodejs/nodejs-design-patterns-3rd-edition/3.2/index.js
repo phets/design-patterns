@@ -25,5 +25,9 @@ function delayedCallback (milliseconds, cb) {
   return emitter
 }
 
-delayedCallback(6001, (tickCount) => { console.log(`Callback called. Totl ticks: ${tickCount}`) })
-  .on('tick', (tickCount, milliseconds) => { console.log(`tick ${tickCount} - ${milliseconds}`) })
+delayedCallback(6001, (tickCount) => {
+  console.log(`Callback called. Totl ticks: ${tickCount}`)
+})
+  .on('tick', (tickCount, milliseconds) => {
+    console.log(`tick ${tickCount} - ${milliseconds}`)
+  })
